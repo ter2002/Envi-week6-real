@@ -1,0 +1,30 @@
+pipeline {
+   agent any
+    stages {
+         stage('pre -build') {
+            steps {
+                sh 'echo Pre-build'
+                sh 'python3 --version'
+            }
+        }
+        stage('build') {
+            steps {
+                
+                echo 'build in progress'
+                sh 'echo helo world'
+                sh 'printenv'
+               
+            }
+        }
+         stage('deploy') {
+            steps {
+                sh 'echo Deploying'
+            }
+        }
+    }
+     post {
+        always {
+            echo 'Cleanup after everything!'
+        }
+    }
+}
